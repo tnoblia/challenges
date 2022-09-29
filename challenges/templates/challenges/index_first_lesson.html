@@ -1,0 +1,25 @@
+
+{% comment %} THIS IS WHAT INDEX LOOKED LIKE BEFORE MAKING THE BLOCK INJECTIONS AND 
+THE EXTEND, I KEPT IT BECAUSE THERE ARE USEFUL COMMENTS HERE {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% comment %} The django extension from baptiste darthenay deactivate the generation
+    of html skeleton so we had to copy past the skeleton {% endcomment %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All challenges</title>
+</head>
+<body>
+    <ul>
+        {% for month in months%}
+        {% comment %} note that we don't have the at the end of for {% endcomment %}
+        <li><a href = "{% url 'month-base-challenge' month%}">{{month|title}}</a></li>
+        {% comment %}  url is equal to reverse() functio in dtl{% endcomment %}
+        {% endfor %} 
+        {% comment %} end needs a balise to stop because it cant know where it stops
+        without (no indentation in dtl.) {% endcomment %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{%extends "base.html"%}
+{%load static %}
+{% block css_files %}
+{% comment %} we can now call static tags like the following one {% endcomment %}
+<link rel="stylesheet" href = "{% static "challenges/challenge.css"%}">
+{% endblock %}
+
+<!DOCTYPE html>
+{% comment %} To see the original file with comments go to challenge_first_lesson {% endcomment %}
+{% block page_title %}
+{{month_name|title}} challenge
+{% endblock  %}}
+
+{% block content %}
+<link rel="stylesheet" href = "{% static "challenges/includes/header.css"%}">
+<h1>{{month_name|title}} Challenge</h1>
+{% if text is not None%}
+    <h2>{{text}}</h2>
+    {%else%}
+    <p>There is no challenge for this month yet!</p>
+    {%endif%}
+    {% comment %} We put the absolute path but we could have used a relative path here: {% endcomment %}
+    {% comment %} <h1>{{month_name}}'s challenge</h1>
+    <h2>{{text}}</h2> {% endcomment %}
+{% endblock  %}

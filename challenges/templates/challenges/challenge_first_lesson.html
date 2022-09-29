@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The built in filters in django are like functions but applied 
+        to the django template language (DTL) . They are signaled by a pipe.
+        Here the title filter allows us to put the month_name variable capitalized.-->
+    <title>{{month_name|title}} challenge</title>
+    {% comment %} The django extension from baptiste darthenay colors the text 
+    between the brackets so we can see if there is a problem or not, it also apparently
+    generate those weird balises for comments that we can see at the beggining and end 
+    of this comment. {% endcomment %}
+</head>
+<body>
+    <h1>{{month_name}}'s challenge</h1>
+    <!-- The two square brackets are django specific and are not part of html coding
+    it's understood by django though cause django picks up the hmtl file and analyze (and modify)
+    it before using it-->
+    <!-- By the way, you cannot write the two square brackets in comment because
+    django apparently doesn't undersand that this is a comment when interpreting the html file -->
+    <h2>{{text}}</h2>
+    <!-- So django swaps {{text}} with the content of the dictionnary passed in argument in
+    the render function : render(request,"challenges/challenge.html",{
+            "text" : challenge_text
+        })-->
+</body>
+</html>

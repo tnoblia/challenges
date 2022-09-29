@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% comment %} We could have done this:
+{%extends ../../../templates/base.html%}
+But we do this instead because the folder location of base.html have been added
+to TEMPLATES["BASE_DIR"]: {% endcomment %}
+ {% comment %} SEE INDEX FIRST LESSON TO SEE THE ORIGINAL FILE {% endcomment %}
+
+ {% load static %} 
+ {% comment %} this basically load a plugin {% endcomment %}
+
+{% block css_files %}
+{% comment %} we can now call static tags like the following one {% endcomment %}
+<link rel="stylesheet" href = "{% static "challenges/challenges.css"%}">
+<link rel="stylesheet" href = "{% static "challenges/includes/header.css"%}">
+{% endblock %}
+{% comment %} We can put static here cause we loaded the static file {% endcomment %}
+ {% comment %} static is a bit like the url tag {% endcomment %}
+
+ {% block page_title %}
+ All challenges
+ {% endblock %}
+
+ {% block content %}
+ <ul>
+    {% for month in months %}
+    <li><a href = "{% url 'month-base-challenge' month%}">{{month|title}}</a></li>
+    {% endfor %} 
+</ul>
+{% endblock %}
